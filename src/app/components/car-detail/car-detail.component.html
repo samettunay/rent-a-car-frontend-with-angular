@@ -1,0 +1,35 @@
+<div *ngIf="dataLoaded==true" class="container py-4 my-4 mx-auto d-flex flex-column">
+    <div class="header">
+        <div class="row r1">
+            <div class="col-md-9 abc">
+                <h1>{{car[0].modelYear}} - {{ car[0].brandName }}</h1>
+            </div>
+            <div class="col-md-3 text-right pqr"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <p class="text-right para">Based on 250 Review</p>
+        </div>
+    </div>
+    <div class="container-body mt-4">
+        <div class="row r3">
+            <div class="col-md-5 p-0 klo">
+                <ul>
+                    <li>{{ car[0].id }}</li>
+                    <li>{{ car[0].brandName }}</li>
+                    <li>{{ car[0].colorName }}</li>
+                    <li>{{ car[0].modelYear }}</li>
+                    <li>{{ car[0].dailyPrice }}</li>
+                    <li>{{ car[0].description }}</li>
+                </ul>
+            </div>
+            <div *ngFor="let carImage of carImages" class="col-md-7"> 
+                <img [src]="getImagePath(carImage)"
+                width="90%" height="95%"> </div>
+        </div>
+    </div>
+    <div class="footer d-flex flex-column mt-5">
+        <!-- <div class="row">
+            <div class="col-md-2 des"><a href="#">Description</a></div>
+            <div class="col-md-2 myt "><a href="#">Review</a></div>
+            <div class="col-md-2 mio offset-md-4"><a href="#">ADD TO carT</a></div>
+        </div> -->
+    </div>
+</div>
