@@ -1,0 +1,8 @@
+.container {
+    max-width: 75%;
+}
+
+navbar-transparent {
+    background: 0 0!important;
+    padding-top: 25px;
+}

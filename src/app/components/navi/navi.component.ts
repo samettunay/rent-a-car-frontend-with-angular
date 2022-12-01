@@ -19,11 +19,11 @@ export class NaviComponent implements OnInit {
   onWindowScroll() {
       let element = document.querySelector('.navbar') as HTMLElement;
       if (window.pageYOffset == 0) {
-        element.classList.add('bg-dark');
-        element.classList.remove('bg-warning');
+        element.classList.add('navbar-transparent');
+        element.classList.remove('bg-danger');
       } else {
-        element.classList.remove('bg-dark');
-        element.classList.add('bg-warning');
+        element.classList.remove('navbar-transparent');
+        element.classList.add('bg-danger');
       }
     }
 }

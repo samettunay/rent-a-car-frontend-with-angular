@@ -1,7 +1,40 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
+  <span class="visually-hidden">Loading...</span>
+</div>
   
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label text-primary">Arama</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama metini giriniz.">
+</div>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <select [(ngModel)]="brandFilter" class="form-select bg-primary border-primary text-white" aria-label="Default select example">
+        <option value="0" selected>Markalar</option>
+        <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+      </select>
+    </div>
+    <div class="col-md-5">
+      <select [(ngModel)]="colorFilter" class="form-select bg-primary border-primary text-white" aria-label="Default select example">
+        <option value="0" selected>Renkler</option>
+        <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button (click)="getCarsByColorAndBrand(brandFilter,colorFilter)" class="btn btn-primary">Filtrele</button>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div *ngIf="filterText.length>2" class="alert alert-primary">
+  {{filterText}} aradınız.
+</div>
+
   <table *ngIf="dataLoaded==true" class="table table-striped">
     <thead>
       <tr>
@@ -11,16 +44,18 @@
         <th>Model Yılı</th>
         <th>Günlük Fiyat</th>
         <th>Açıklama</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr routerLink="/cars/{{car.id}}" *ngFor="let car of cars">
+      <tr routerLink="/cars/{{car.id}}" *ngFor="let car of cars | filterPipe:filterText">
         <td>{{ car.id }}</td>
         <td>{{ car.brandName }}</td>
         <td>{{ car.colorName }}</td>
         <td>{{ car.modelYear }}</td>
-        <td>{{ car.dailyPrice }}</td>
+        <td>{{ car.dailyPrice | currency }}</td>
         <td>{{ car.description }}</td>
+        <td><button class="btn btn-success">Kirala</button></td>
       </tr>
     </tbody>
   </table>

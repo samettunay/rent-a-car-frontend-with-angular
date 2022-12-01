@@ -46,4 +46,12 @@ export class CarDetailComponent implements OnInit {
     return url;
   }
 
+  getImagesClass(carImage:CarImage){
+    if (this.carImages[0] == carImage) {
+      return "carousel-item active"
+    } else {
+      return "carousel-item"      
+    }
+  }
+
 }

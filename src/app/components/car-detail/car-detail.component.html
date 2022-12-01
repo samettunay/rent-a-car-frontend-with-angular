@@ -10,7 +10,7 @@
     </div>
     <div class="container-body mt-4">
         <div class="row r3">
-            <div class="col-md-5 p-0 klo">
+            <div class="col-md-5 p-5 klo">
                 <ul>
                     <li>{{ car[0].id }}</li>
                     <li>{{ car[0].brandName }}</li>
@@ -20,12 +20,55 @@
                     <li>{{ car[0].description }}</li>
                 </ul>
             </div>
-            <div *ngFor="let carImage of carImages" class="col-md-7"> 
-                <img [src]="getImagePath(carImage)"
-                width="90%" height="95%"> </div>
+
+            <div id="carouselExampleControls" class="carousel slide col-md-6" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div *ngFor="let carImage of carImages" [class]="getImagesClass(carImage)"> 
+                    <img class="d-block" [src]="getImagePath(carImage)"
+                    width="100%" height="100%"> 
+                </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </div>
     </div>
     <div class="footer d-flex flex-column mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>Kiralanacak Gün</h4>
+                </div>
+                <div class="col-md-5">
+                    <h4>Kiranın Son Günü</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="text"
+                         placeholder="Ay/Gün/Yıl"
+                         class="form-control bg-danger text-white"
+                         bsDatepicker
+                         [bsConfig]="{ isAnimated: true, containerClass: 'theme-blue' }">
+                </div>
+                <div class="col-md-5">   
+                    <input type="text"
+                        placeholder="Ay/Gün/Yıl"
+                        class="form-control bg-danger text-white"
+                        bsDatepicker
+                        [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }">
+                </div>
+                <div class="col-md-2">
+                   <button class="btn btn-success" >Kirala</button>
+                </div>
+            </div>
+          </div>
         <!-- <div class="row">
             <div class="col-md-2 des"><a href="#">Description</a></div>
             <div class="col-md-2 myt "><a href="#">Review</a></div>
