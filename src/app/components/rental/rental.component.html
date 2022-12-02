@@ -1,0 +1,11 @@
+<form [formGroup]="addFormGroup">
+    <div>
+        <label for="rentDate"><h4>Rent Date</h4></label>
+        <input type="date" id="rentDate" class="form-control" formControlName="rentDate">
+    </div>
+    <div class="mt-2">
+        <label for="returnDate"><h4>Return Date</h4></label>
+        <input type="date" id="returnDate" class="form-control" formControlName="returnDate">
+    </div>
+    <button class="btn btn-success mt-1" (click)="rentInfoSave()">Kirala</button>
+</form>

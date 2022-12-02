@@ -12,13 +12,15 @@ import { CarService } from 'src/app/services/car.service';
   templateUrl: './car-detail.component.html',
   styleUrls: ['./car-detail.component.css']
 })
+
 export class CarDetailComponent implements OnInit {
   car: Car[] = [];
   carImages: CarImage[] = [];
   dataLoaded = false;
+
   constructor(private carService: CarService,
     private activatedRoute:ActivatedRoute,
-    private carImagesService:CarImagesService) { }
+    private carImagesService:CarImagesService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
@@ -35,12 +37,13 @@ export class CarDetailComponent implements OnInit {
       this.dataLoaded = true;
     })   
   }
+
   getCarImagesByCarId(carId:number) {
     this.carImagesService.getCarImagesByCarId(carId).subscribe(response => {
       this.carImages = response.data;
-      this.dataLoaded = true;
     })
   }
+
   getImagePath(carImage:CarImage):string {
     let url: string ="https://localhost:44327/uploads/images/" + carImage.imagePath
     return url;
@@ -50,8 +53,7 @@ export class CarDetailComponent implements OnInit {
     if (this.carImages[0] == carImage) {
       return "carousel-item active"
     } else {
-      return "carousel-item"      
+      return "carousel-item"
     }
   }
-
 }

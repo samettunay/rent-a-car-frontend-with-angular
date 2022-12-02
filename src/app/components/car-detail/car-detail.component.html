@@ -40,35 +40,7 @@
         </div>
     </div>
     <div class="footer d-flex flex-column mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <h4>Kiralanacak Gün</h4>
-                </div>
-                <div class="col-md-5">
-                    <h4>Kiranın Son Günü</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-5">
-                    <input type="text"
-                         placeholder="Ay/Gün/Yıl"
-                         class="form-control bg-danger text-white"
-                         bsDatepicker
-                         [bsConfig]="{ isAnimated: true, containerClass: 'theme-blue' }">
-                </div>
-                <div class="col-md-5">   
-                    <input type="text"
-                        placeholder="Ay/Gün/Yıl"
-                        class="form-control bg-danger text-white"
-                        bsDatepicker
-                        [bsConfig]="{ isAnimated: true, containerClass: 'theme-red' }">
-                </div>
-                <div class="col-md-2">
-                   <button class="btn btn-success" >Kirala</button>
-                </div>
-            </div>
-          </div>
+        <app-rental></app-rental>
         <!-- <div class="row">
             <div class="col-md-2 des"><a href="#">Description</a></div>
             <div class="col-md-2 myt "><a href="#">Review</a></div>
