@@ -14,6 +14,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { RentalComponent } from './components/rental/rental.component';
+import { PaymentComponent } from './components/payment/payment.component';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ToastrModule } from 'ngx-toastr';
     ColorComponent,
     CarDetailComponent,
     FilterPipePipe,
-    RentalComponent
+    RentalComponent,
+    PaymentComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),

@@ -1,0 +1,11 @@
+.btn {
+    margin: 0;
+}
+.form-control {
+    margin-top: .3%;
+}
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    font-size: medium;
+}

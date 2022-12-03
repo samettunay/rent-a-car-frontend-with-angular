@@ -2,7 +2,7 @@
     <div class="header">
         <div class="row r1">
             <div class="col-md-9 abc">
-                <h1>{{car[0].modelYear}} - {{ car[0].brandName }}</h1>
+                <h1>{{car.modelYear}} - {{ car.brandName }}</h1>
             </div>
             <div class="col-md-3 text-right pqr"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
             <p class="text-right para">Based on 250 Review</p>
@@ -12,12 +12,12 @@
         <div class="row r3">
             <div class="col-md-5 p-5 klo">
                 <ul>
-                    <li>{{ car[0].id }}</li>
-                    <li>{{ car[0].brandName }}</li>
-                    <li>{{ car[0].colorName }}</li>
-                    <li>{{ car[0].modelYear }}</li>
-                    <li>{{ car[0].dailyPrice }}</li>
-                    <li>{{ car[0].description }}</li>
+                    <li>{{ car.id }}</li>
+                    <li>{{ car.brandName }}</li>
+                    <li>{{ car.colorName }}</li>
+                    <li>{{ car.modelYear }}</li>
+                    <li>{{ car.dailyPrice }}</li>
+                    <li>{{ car.description }}</li>
                 </ul>
             </div>
 
@@ -25,7 +25,7 @@
                 <div class="carousel-inner">
                   <div *ngFor="let carImage of carImages" [class]="getImagesClass(carImage)"> 
                     <img class="d-block" [src]="getImagePath(carImage)"
-                    width="100%" height="100%"> 
+                    width="100%" style="min-height: 400px;"> 
                 </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

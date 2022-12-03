@@ -1,11 +1,27 @@
-<form [formGroup]="addFormGroup">
-    <div>
-        <label for="rentDate"><h4>Rent Date</h4></label>
-        <input type="date" id="rentDate" class="form-control" formControlName="rentDate">
+<form [formGroup]="addFormGroup" class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <label for="rentDate"><h4>Kiralama Tarihi</h4></label>
+        </div>
+        <div class="col-md-5">
+            <label for="returnDate"><h4>Dönüş Tarihi</h4></label>
+        </div>
     </div>
-    <div class="mt-2">
-        <label for="returnDate"><h4>Return Date</h4></label>
-        <input type="date" id="returnDate" class="form-control" formControlName="returnDate">
+    <div class="row">
+        <div class="col-md-5">
+            <input type="text" id="rentDate" placeholder="Ay/Gün/Yıl"
+            class="form-control bg-danger" formControlName="rentDate"
+            bsDatepicker [(ngModel)]="rentDate"
+            [bsConfig]="{ isAnimated: true, containerClass: 'theme-blue' }">
+        </div>
+        <div class="col-md-5">
+            <input type="text" id="returnDate" placeholder="Ay/Gün/Yıl"
+            class="form-control bg-danger" formControlName="returnDate"
+            bsDatepicker [(ngModel)]="returnDate"
+            [bsConfig]="{ isAnimated: true, containerClass: 'theme-blue' }">
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary" (click)="checkRulesForAdding()">Kirala</button>
+        </div>
     </div>
-    <button class="btn btn-success mt-1" (click)="rentInfoSave()">Kirala</button>
 </form>

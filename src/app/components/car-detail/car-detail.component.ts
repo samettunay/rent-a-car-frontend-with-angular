@@ -14,7 +14,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 
 export class CarDetailComponent implements OnInit {
-  car: Car[] = [];
+  car: Car;
   carImages: CarImage[] = [];
   dataLoaded = false;
 
@@ -25,15 +25,15 @@ export class CarDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["carId"]){
-        this.getCarsById(params["carId"])
+        this.getCarById(params["carId"])
         this.getCarImagesByCarId(params["carId"]);
       }
     })
   }
 
-  getCarsById(carId:number) {
-    this.carService.getCarsById(carId).pipe(map((res: ListResponseModel<Car>) => Object.values(res))).subscribe(response=>{
-      this.car = response
+  getCarById(carId:number) {
+    this.carService.getCarById(carId).subscribe(response=>{
+      this.car = response.data
       this.dataLoaded = true;
     })   
   }
