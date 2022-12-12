@@ -48,7 +48,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr routerLink="/cars/{{car.id}}" *ngFor="let car of cars | filterPipe:filterText">
+      <tr routerLink="/cars/carId/{{car.id}}" *ngFor="let car of cars | filterPipe:filterText">
         <td>{{ car.id }}</td>
         <td>{{ car.brandName }}</td>
         <td>{{ car.colorName }}</td>

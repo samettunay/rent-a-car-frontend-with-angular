@@ -1,0 +1,53 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Araba Ekle</h5>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+            <div class="mb-3">
+              <label for="brandId">Marka seçiniz.</label>
+              <div class="form-group">
+                <select class="form-select bg-danger border-danger text-white" formControlName="brandId">
+                  <option *ngFor="let brand of brands" [ngValue]="brand.id">{{brand.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="colorId">Renk seçiniz.</label>
+              <div class="form-group">
+                <select class="form-select bg-danger border-danger text-white" formControlName="colorId">
+                  <option *ngFor="let color of colors" [ngValue]="color.id">{{color.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="modelYear">Model yılı yazınız.</label>
+              <div class="form-group">
+                <input type="number" id="modelYear" class="form-control border-danger text-white" placeholder="Model Yılı"
+                formControlName="modelYear">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="dailyPrice">Günlük fiyat yazınız.</label>
+              <div class="form-group">
+                <input type="number" id="dailyPrice" class="form-control border-danger text-white" placeholder="Günlük Fiyat"
+                formControlName="dailyPrice">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="description">Açıklama yazınız.</label>
+              <div class="form-group">
+                <input type="text" id="description" class="form-control border-danger text-white" placeholder="Açıklama"
+                formControlName="description">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button (click)="add()" class="btn btn-success w-100">Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>

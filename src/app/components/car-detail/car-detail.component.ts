@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs';
-import { Car } from 'src/app/models/car';
+import { CarDetailDto } from 'src/app/models/car-detail-dto';
 import { CarImage } from 'src/app/models/carImage';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
 import { CarImagesService } from 'src/app/services/car-images.service';
@@ -14,7 +14,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 
 export class CarDetailComponent implements OnInit {
-  car: Car;
+  car: CarDetailDto;
   carImages: CarImage[] = [];
   dataLoaded = false;
 
