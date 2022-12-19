@@ -8,6 +8,7 @@ import { CarComponent } from './components/car/car.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:"colors/add", component:ColorAddComponent, canActivate:[LoginGuard]},
   {path:"brands/add", component:BrandAddComponent, canActivate:[LoginGuard]},
   {path:"login", component:LoginComponent},
-  {path:"register", component:RegisterComponent}
+  {path:"register", component:RegisterComponent},
+  {path:"profile", component:ProfileComponent, canActivate:[LoginGuard]}
 ];
 
 @NgModule({

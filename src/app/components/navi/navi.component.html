@@ -40,7 +40,7 @@
 
     <ul *ngIf="isAuthenticated()" class="navbar-nav mr-right">
       <li class="nav-item">
-        <a class="navbar-brand text-white" href="/profile">{{userName}}</a>
+        <a *ngIf="dataLoaded" class="navbar-brand text-white" href="/profile">{{user.firstName}}</a>
       </li>
       <li class="nav-item">
         <a (click)="logout()" class="navbar-brand text-danger" href="">Çıkış Yap</a>

@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from 'src/interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     ColorAddComponent,
     BrandAddComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),

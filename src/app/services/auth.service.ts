@@ -43,12 +43,12 @@ export class AuthService {
     return this.jwtHelperService.decodeToken(token);
   }
 
-  get getCurrentUserName() {
+  get getCurrentUserId() {
     let decodedToken = this.getDecodedToken;
-    let userNameString = Object.keys(decodedToken).filter((t) =>
-      t.endsWith('/name')
+    let userIdString = Object.keys(decodedToken).filter((t) =>
+      t.endsWith('/nameidentifier')
     )[0];
-    let userName: string = decodedToken[userNameString];
-    return userName;
+    let userId: number = decodedToken[userIdString];
+    return userId;
   }
 }
