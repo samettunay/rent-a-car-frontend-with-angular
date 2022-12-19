@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -19,6 +19,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from 'src/interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
     PaymentComponent,
     CarAddComponent,
     ColorAddComponent,
-    BrandAddComponent
+    BrandAddComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
@@ -47,7 +53,11 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
       positionClass: "toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true},
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

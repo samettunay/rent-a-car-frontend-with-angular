@@ -1,15 +1,17 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
+<div *ngIf="dataLoaded==false" class=" h-100 d-flex justify-content-center align-items-center">
+  <div  class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 </div>
   
-<div class="mb-3">
+<div *ngIf="dataLoaded==true" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label text-primary">Arama</label>
   <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama metini giriniz.">
 </div>
 
 <br>
 
-<div class="container">
+<div *ngIf="dataLoaded==true" class="container">
   <div class="row">
     <div class="col-md-5">
       <select [(ngModel)]="brandFilter" class="form-select bg-primary border-primary text-white" aria-label="Default select example">
@@ -35,28 +37,28 @@
   {{filterText}} aradınız.
 </div>
 
-  <table *ngIf="dataLoaded==true" class="table table-striped">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Marka Adı</th>
-        <th>Renk</th>
-        <th>Model Yılı</th>
-        <th>Günlük Fiyat</th>
-        <th>Açıklama</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr routerLink="/cars/carId/{{car.id}}" *ngFor="let car of cars | filterPipe:filterText">
-        <td>{{ car.id }}</td>
-        <td>{{ car.brandName }}</td>
-        <td>{{ car.colorName }}</td>
-        <td>{{ car.modelYear }}</td>
-        <td>{{ car.dailyPrice | currency }}</td>
-        <td>{{ car.description }}</td>
-        <td><button class="btn btn-success">Kirala</button></td>
-      </tr>
-    </tbody>
-  </table>
-  
+<div *ngIf="dataLoaded==true" class="album py-5">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col-md-4" *ngFor="let car of cars | filterPipe:filterText">
+        <div class="card shadow-sm">
+          <img  class="d-block" [src]="getCarImagePath(car.id)"
+                    width="100%">
+          <div class="card-body">
+            <ul>
+              <li>{{ car.modelYear }} - {{ car.brandName }}</li>
+            </ul>
+            <p class="card-text">{{ car.description }}</p>
+            <br>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" routerLink="/cars/carId/{{car.id}}" class="btn btn-success btn-outline-secondary">İncele</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
