@@ -24,6 +24,7 @@ import { AuthInterceptor } from 'src/interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ColorDirective } from './directives/color.directive';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BrandAddComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    ColorDirective
   ],
   imports: [
     BsDatepickerModule.forRoot(),

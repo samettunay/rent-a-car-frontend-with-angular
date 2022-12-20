@@ -11,7 +11,7 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandAddComponent implements OnInit {
 
   brandAddForm: FormGroup;
-
+  
   constructor(
     private brandService:BrandService,
     private formBuilder:FormBuilder,
