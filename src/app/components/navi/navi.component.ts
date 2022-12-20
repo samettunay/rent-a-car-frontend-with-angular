@@ -23,30 +23,27 @@ export class NaviComponent implements OnInit {
     private userService:UserService,
     private localStorageService:LocalStorageService,
     private toastrService:ToastrService
-  ) { }
+  ) {  }
   
   ngOnInit(): void {
+    this.getUserById();
   }
 
   logout(){
     this.localStorageService.remove("token");
-    this.dataLoaded = false;
     window.location.reload();
     this.toastrService.info("Çıkış yapıldı");
   }
 
   getUserById(){
     this.userService.getUserById(this.authService.getCurrentUserId)
-      .subscribe(response=>{
-        this.user = response.data
-        this.dataLoaded = true;
-      });
+    .subscribe(response=>{
+      this.user = response.data
+      this.dataLoaded = true
+    });
   }
 
   isAuthenticated(){
-    if (this.authService.isAuthenticated() && !this.dataLoaded) {
-      this.getUserById();
-    }
     return this.authService.isAuthenticated();
   }
 

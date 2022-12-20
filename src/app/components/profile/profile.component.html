@@ -6,7 +6,7 @@
                 <span class="text-black-50">{{user.email}}</span><span></span></div>
         </div>
         <form [formGroup]="profileForm" class="col-md-9 border-right">
-            <div class="p-3 py-5">
+            <div class="p-3 py-0">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profile Settings</h4>
                 </div>
@@ -16,12 +16,21 @@
                     <div class="col-md-6"><label class="labels">Surname</label>
                         <input formControlName="lastName" type="text" class="form-control text-black" value="" placeholder="Soyad"></div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                        <label class="labels">Email</label>
-                        <input formControlName="email" type="text" class="form-control text-black"  placeholder="Email adresi giriniz." value=""></div>
-                </div>
-                <div class="mt-5 text-center"><button (click)="updateUser()" class="btn btn-primary profile-button" type="button">Güncelle</button></div>
+                <div class="mt-4 mb-4 text-center w-100"><button (click)="updateUserNames()" class="w-100 btn btn-success profile-button" type="button">Bilgileri Güncelle</button></div>
+                
+                <form [formGroup]="passwordForm">
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Eski Şifre</label>
+                            <input formControlName="oldPassword" type="password" class="form-control text-black" placeholder="Eski Şifre" value=""></div>
+                        <div class="col-md-6"><label class="labels">Yeni Şifre</label>
+                            <input formControlName="newPassword" type="password" class="form-control text-black" placeholder="Yeni Şifre" value=""></div>
+                        <div class="mt-3 col-md-6">
+                            <label class="labels">Yeni Şifre Tekrarı</label>
+                            <input formControlName="repeatNewPassword" type="password" class="form-control text-black" value="" placeholder="Yeni Şifre Tekrarı">
+                        </div>
+                    </div>
+                    <div class="mt-4 mb-4 text-center w-100"><button (click)="updatePassword()" class="w-100 btn btn-danger profile-button" type="button">Şifreyi Güncelle</button></div>
+                </form>
             </div>
         </form>
     </div>

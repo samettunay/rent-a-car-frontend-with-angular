@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       let loginModel = Object.assign({}, this.loginForm.value)
       this.authService.login(loginModel).subscribe(response=>{
-        this.router.navigate(["/"])
         this.localStorageService.setItem("token",response.data.token);
+        window.location.href = "/";
         this.toastrService.info(response.message, "Giriş başarılı");
       }, responseError=>{
         this.toastrService.error(responseError.error, "Hata!");

@@ -15,8 +15,8 @@ export class UserService {
 
   constructor(private httpClient:HttpClient) { }
 
-  updateUser(user:User){
-    let newUrl = this.apiUrl + "users/update";
+  updateUserNames(user:User){
+    let newUrl = this.apiUrl + "users/updateusernames";
     return this.httpClient.post<ResponseModel>(newUrl,user);
   }
 

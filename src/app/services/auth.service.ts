@@ -6,6 +6,9 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LocalStorageService } from './local-storage.service';
+import { User } from '../models/user';
+import { ResponseModel } from '../models/responseModel';
+import { UserPasswordModel } from '../models/userPasswordModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +30,11 @@ export class AuthService {
 
   register(registerModel:RegisterModel) {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl + "register", registerModel);
+  }
+
+  updatePassword(userPasswordModel:UserPasswordModel){
+    let newUrl = this.apiUrl + "updatepassword";
+    return this.httpClient.post<ResponseModel>(newUrl, userPasswordModel)
   }
 
   isAuthenticated(){
