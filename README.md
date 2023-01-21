@@ -1,5 +1,14 @@
 # RentACar
 
+![Screenshot_1](https://user-images.githubusercontent.com/79511355/209445270-3a341297-8971-4079-bcce-bc0a6b0451b0.png)
+
+![Screenshot_2](https://user-images.githubusercontent.com/79511355/209445273-57f1eb84-3c03-4ddf-9702-432ecfdb3a9c.png)
+
+![Screenshot_3](https://user-images.githubusercontent.com/79511355/209445276-67c38d2a-5fae-4c65-bf6c-28a80d6a74d6.png)
+
+![Screenshot_6](https://user-images.githubusercontent.com/79511355/209445277-e26f8959-098e-4398-a1f9-6e3945eb2631.png)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
 
 ## Development server
