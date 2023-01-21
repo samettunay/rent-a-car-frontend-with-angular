@@ -31,7 +31,7 @@ export class BrandComponent implements OnInit {
 
   getCurrentCategoryClass(brand:Brand){
     if(brand ==this.currentBrand){
-      return "list-group-item active"
+      return "list-group-item bg-info"
     }else{
       return "list-group-item"
     }
@@ -39,7 +39,7 @@ export class BrandComponent implements OnInit {
 
   getAllBrandClass(){
     if (!this.currentBrand) {
-      return "list-group-item active"
+      return "list-group-item bg-info"
     } else {
       return "list-group-item"
     }

@@ -53,10 +53,10 @@ export class NaviComponent implements OnInit {
       let element = document.querySelector('.navbar') as HTMLElement;
       if (window.pageYOffset == 0) {
         element.classList.add('navbar-transparent');
-        element.classList.remove('bg-danger');
+        element.classList.remove('bg-info');
       } else {
         element.classList.remove('navbar-transparent');
-        element.classList.add('bg-danger');
+        element.classList.add('bg-info');
       }
     }
 }

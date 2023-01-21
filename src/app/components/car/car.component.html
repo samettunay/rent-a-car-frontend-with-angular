@@ -1,59 +1,70 @@
-<div *ngIf="dataLoaded==false" class=" h-100 d-flex justify-content-center align-items-center">
-  <div  class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-</div>
-  
-<div *ngIf="dataLoaded==true" class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label text-primary">Arama</label>
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama metini giriniz.">
-</div>
-
-<br>
-
-<div *ngIf="dataLoaded==true" class="container">
+<div class="container-xxl">
   <div class="row">
-    <div class="col-md-5">
-      <select [(ngModel)]="brandFilter" class="form-select bg-primary border-primary text-white" aria-label="Default select example">
-        <option value="0" selected>Markalar</option>
-        <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
-      </select>
+    <div class="col-md-3">
+      <app-brand></app-brand>
+      <br>
+      <app-color></app-color>
     </div>
-    <div class="col-md-5">
-      <select [(ngModel)]="colorFilter" class="form-select bg-primary border-primary text-white" aria-label="Default select example">
-        <option value="0" selected>Renkler</option>
-        <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
-      </select>
-    </div>
-    <div class="col-md-2">
-      <button (click)="getCarsByColorAndBrand(brandFilter,colorFilter)" class="btn btn-primary">Filtrele</button>
-    </div>
-  </div>
-</div>
-
-<br>
-
-<div *ngIf="filterText.length>2" class="alert alert-primary">
-  {{filterText}} aradınız.
-</div>
-
-<div *ngIf="dataLoaded==true" class="album py-5">
-  <div class="container">
-
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <div class="col-md-4" *ngFor="let car of cars | filterPipe:filterText">
-        <div class="card shadow-sm">
-          <img  class="d-block" [src]="getCarImagePath(car.id)"
-                    width="100%">
-          <div class="card-body">
-            <ul>
-              <li>{{ car.modelYear }} - {{ car.brandName }}</li>
-            </ul>
-            <p class="card-text">{{ car.description }}</p>
-            <br>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <button type="button" routerLink="/cars/carId/{{car.id}}" class="btn btn-success btn-outline-secondary">İncele</button>
+    <div class="col-md-9">
+      <div *ngIf="dataLoaded==false" class=" h-100 d-flex justify-content-center align-items-center">
+        <div  class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+        
+      <div *ngIf="dataLoaded==true" class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label text-primary">Arama</label>
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama metini giriniz.">
+      </div>
+      
+      <br>
+      
+      <div *ngIf="dataLoaded==true" class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <select [(ngModel)]="brandFilter" class="form-select bg-primary border-primary text-white" aria-label="Default select example">
+              <option value="0" selected>Markalar</option>
+              <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <select [(ngModel)]="colorFilter" class="form-select bg-primary border-primary text-white" aria-label="Default select example">
+              <option value="0" selected>Renkler</option>
+              <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <button (click)="getCarsByColorAndBrand(brandFilter,colorFilter)" class="btn btn-primary">Filtrele</button>
+          </div>
+        </div>
+      </div>
+      
+      <br>
+      
+      <div *ngIf="filterText.length>2" class="alert alert-primary">
+        {{filterText}} aradınız.
+      </div>
+      
+      <div *ngIf="dataLoaded==true" class="album py-5">
+        <div class="container">
+      
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col-md-4" *ngFor="let car of cars | filterPipe:filterText">
+              <div class="card shadow-sm">
+                <img  class="d-block" [src]="getCarImagePath(car.id)"
+                          width="100%">
+                <div class="card-body">
+                  <ul>
+                    <li>{{ car.modelYear }} - {{ car.brandName }}</li>
+                  </ul>
+                  <p class="card-text">{{ car.description }}</p>
+                  <br>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" routerLink="/cars/carId/{{car.id}}" class="btn btn-success btn-outline-secondary">İncele</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -62,3 +73,6 @@
     </div>
   </div>
 </div>
+
+
+

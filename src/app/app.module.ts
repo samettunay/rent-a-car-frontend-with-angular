@@ -25,6 +25,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ColorDirective } from './directives/color.directive';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminRentalComponent } from './components/admin-rental/admin-rental.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ColorDirective } from './directives/color.directive';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    ColorDirective
+    ColorDirective,
+    AdminComponent,
+    AdminRentalComponent
   ],
   imports: [
     BsDatepickerModule.forRoot(),
